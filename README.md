@@ -28,7 +28,7 @@ node fuwuqiqiandao.js//测试脚本
 qiandao.js 供本地测试 不需要额外安装库  
 fuwuqiqiandao.js 供在服务器上运行 ，打卡成功之后会有邮件提醒。需要在服务器上安装axios和nodemailer库  
 代码修改：  
-qiaodao.js里面的学号替换你自己的，密码替换你自己的，经纬度替换为你自己的（需要MD5加密之后得到的32位小，转换网址：https://tool.chinaz.com/tools/md5.aspx。  
+qiaodao.js里面的学号替换你自己的，密码替换你自己的，经纬度替换为你自己的（需要MD5加密之后得到的32位小，转换网址：https://tool.chinaz.com/tools/md5.aspx  
 新建一个文件夹，放入config.html还有qiandao.js,这个文件夹用浏览器打开  
 fuwuqiqiandao.js里面的邮箱换成你自己的，学号密码换成自己的，经纬度替换为你自己的（需要MD5加密之后得到的32位小，转换网址：https://tool.chinaz.com/tools/md5.aspx  
 # 小小声
