@@ -37,10 +37,11 @@ fuwuqiqiandao.js里面的邮箱换成你自己的，学号密码换成自己的�
 接下来的操作参考环境配置
 # 小小声
 其实这个签到实现逻辑很简单，抓登陆的时候的包获取token(看到密码是经过简单的MD5加密之后的，所以对应代码密码位置也需要MD5加密)，抓打卡发送的包，找到打卡对应的api  
-加密也就是简单的MD5加密 发送出的数据是在发送之前就加密了的
-登录包：  
+加密password也就是简单的MD5加密 发送出的数据是在发送之前就加密了的   
+# 抓包过程
+登录获取token   
 ![image](https://github.com/user-attachments/assets/1e3149ea-ec76-4088-b319-6d49ab4de9fd)
-打卡包：  
+打卡向服务器发送打卡数据：  
 ![07b557507a76b9da77932eece4781db](https://github.com/user-attachments/assets/e8a133f4-156d-44de-b34d-97946a2963b1)     
 
 用的抓包软件是proxypin 。开源，支持苹果appstore 安卓 windows   
