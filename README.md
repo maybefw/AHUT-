@@ -1,6 +1,6 @@
 # AHUT-
 安徽工业大学晚寝考勤打卡签到 https://xskq.ahut.edu.cn/wise/
-# 2024.10.23 更新多人打卡，涵盖所有宿舍楼范围，新增重试机制
+# 2024.10.23 更新多人打卡，涵盖在所有对应的宿舍楼范围内实现动态签到，新增重试机制
 <img src="https://github.com/user-attachments/assets/12af871e-a12a-4c71-84ea-180aa2d2f1d3" alt="image description" width="500" height="300" />
 
 
