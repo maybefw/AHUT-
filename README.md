@@ -38,18 +38,22 @@ node fuwuqiqiandao.js//测试脚本
 git clone https://github.com/maybefw/AHUT-.git
 ```
 
-```
-qiandao.js 供本地测试 不需要额外安装库  
-fuwuqiqiandao.js 供在服务器上运行 ，打卡成功之后会有邮件提醒。需要在服务器上安装axios和nodemailer库
-```
-```
-qiaodao.js里面的学号替换你自己的，密码替换你自己的，经纬度替换为你自己的（需要MD5加密之后得到的32位小，转换网址：https://tool.chinaz.com/tools/md5.aspx  
-新建一个文件夹，放入config.html还有qiandao.js,这个文件夹用浏览器打开
-```
-```
-fuwuqiqiandao.js里面的邮箱换成你自己的，学号密码换成自己的，经纬度替换为你自己的（需要MD5加密之后得到的32位小，转换网址：https://tool.chinaz.com/tools/md5.aspx  
-接下来的操作参考环境配置
-```
+<details>
+  <summary>本地和服务器的签到脚本使用说明</summary>
+
+  **本地测试使用 `qiandao.js`，无需额外安装库：**
+  - 直接将 `qiandao.js` 文件中的学号替换为你自己的，密码替换为你自己的，经纬度替换为你自己的（需要通过 MD5 加密得到 32 位小写值）。MD5 转换网址：[https://tool.chinaz.com/tools/md5.aspx](https://tool.chinaz.com/tools/md5.aspx)。
+  
+  **服务器运行使用 `fuwuqiqiandao.js`，成功打卡后会有邮件提醒：**
+  - 在服务器上运行时，需要安装 `axios` 和 `nodemailer` 库。
+  - 将 `fuwuqiqiandao.js` 文件中的邮箱替换为你自己的，学号和密码替换为你自己的，经纬度替换为你自己的（也需要 MD5 加密得到的 32 位小写值）。
+
+  **操作步骤：**
+  1. 新建一个文件夹，将 `config.html` 和 `qiandao.js` 放入该文件夹。
+  2. 使用浏览器打开此文件夹。
+  3. 参考环境配置完成相关设置。
+</details>
+
 # 小小声
 其实这个签到实现逻辑很简单，抓登陆的时候的包获取token(看到密码是经过简单的MD5加密之后的，所以对应代码密码位置也需要MD5加密)，抓打卡发送的包，找到打卡对应的api  
 加密password也就是简单的MD5加密 发送出的数据是在发送之前就加密了的   
