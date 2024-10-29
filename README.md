@@ -33,6 +33,11 @@ node fuwuqiqiandao.js//测试脚本
 ```
 
 # 使用
+最直接的，使用您的vscode或其他工具克隆本项目到本地   
+```
+git clone https://github.com/maybefw/AHUT-.git
+```
+
 ```
 qiandao.js 供本地测试 不需要额外安装库  
 fuwuqiqiandao.js 供在服务器上运行 ，打卡成功之后会有邮件提醒。需要在服务器上安装axios和nodemailer库
