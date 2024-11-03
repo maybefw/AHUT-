@@ -3,7 +3,7 @@
 star本项目之后可提供免费体验打卡到11月10号（服务器到期）   捐赠本项目后可永久打卡   
 如何联系？v：jlian0201
 
-# 2024.10.23 更新多人打卡，涵盖在所有对应的宿舍楼范围内实现动态签到，新增重试机制
+# 2024.10.23 实现动态签到，新增重试机制
 <img src="https://github.com/user-attachments/assets/12af871e-a12a-4c71-84ea-180aa2d2f1d3" alt="image description" width="400" height="300" />
 
 
