@@ -12,7 +12,7 @@ const getToken = async () => {
         body: new URLSearchParams({
           tenantId: "000000",
           username: "", // 学号
-          password: "6e414d222e2765b8ed2501f1df15ffdf", // ''里面写你的密码,是加密后的密码，32位小，比如初始密码Ahgydx@920加密后就是6e414d222e2765b8ed2501f1df15ffdf，加密地址：https://tool.chinaz.com/tools/md5.aspx
+          password: "6e414d222e2765b8ed2501f1df15ffdf", //加密之后的密码
           type: "account",
           grant_type: "password",
           scope: "all",
@@ -22,7 +22,7 @@ const getToken = async () => {
 
     const data = await response.json();
     if (response.ok) {
-      console.log("Token:", data.access_token); // 获取到的 Token
+      console.log("Token:", data.access_token);
       return data.access_token;
     } else {
       console.error("登录失败:", data);
@@ -34,7 +34,7 @@ const getToken = async () => {
   }
 };
 
-// 获取当前时间，格式化为 HH:MM:SS
+
 const getCurrentTime = () => {
   const now = new Date();
   const hours = String(now.getHours()).padStart(2, "0");
@@ -43,16 +43,16 @@ const getCurrentTime = () => {
   return `${hours}:${minutes}:${seconds}`;
 };
 
-// 获取当前日期，格式化为 YYYY-MM-DD
+
 const getCurrentDate = () => {
   const now = new Date();
   const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, "0"); // 月份从 0 开始
+  const month = String(now.getMonth() + 1).padStart(2, "0");
   const day = String(now.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
 
-// 获取当前星期几
+
 const getCurrentWeekday = () => {
   const days = [
     "星期日",
@@ -64,11 +64,10 @@ const getCurrentWeekday = () => {
     "星期六",
   ];
   const now = new Date();
-  const day = now.getDay(); // 获取星期几（0-6，0为星期日）
+  const day = now.getDay(); 
   return days[day];
 };
 
-// 签到的函数，使用获取到的时间、日期和星期
 const signIn = async (token) => {
   if (!token) {
     console.error("Token 未获取到，无法进行签到");
@@ -84,13 +83,13 @@ const signIn = async (token) => {
     signAddress: "宿舍楼",
     locationAccuracy: 7.8,
     signLat: 31.690481,
-    signLng: 118.516914, //经纬度换成你们的，这里默认是佳山校区宿舍楼1
+    signLng: 118.516914, 
     signType: 0,
     fileId: "",
     imgBase64: "/static/images/dormitory/photo.png",
-    signDate: currentDate, // 使用当前日期
-    signTime: currentTime, // 使用当前时间
-    signWeek: currentWeekday, // 使用当前星期几
+    signDate: currentDate, 
+    signTime: currentTime, 
+    signWeek: currentWeekday, 
     scanCode: "",
   };
 
@@ -118,7 +117,7 @@ const signIn = async (token) => {
   }
 };
 
-// 获取 Token 并开始签到
+
 getToken().then((token) => {
   if (token) {
     signIn(token);
