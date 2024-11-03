@@ -1,7 +1,7 @@
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 
-// 定义宿舍楼的坐标信息
+// 宿舍楼的坐标
 const dormLocations = {
     '1号楼': { lat: 31.69037, lng: 118.516967 },
     '2号楼': { lat: 31.69101, lng: 118.517666 },
@@ -33,15 +33,15 @@ const dormLocations = {
     'L2': { lat: 31.677417, lng: 118.554936 },
 };
 
-// 定义多个用户的账号信息和宿舍楼
+
 const users = [
     { username: '', password: '6e414d222e2765b8ed2501f1df15ffdf', email: '@qq.com', dorm: '1号楼' },
     { username: '', password: '', email: '@qq.com', dorm: '1号楼' },
     { username: '', password: '6e414d222e2765b8ed2501f1df15ffdf', email: '@qq.com', dorm: 'L2' },
     { username: '', password: '', email: '@qq.com', dorm: '1号楼' }
-];//username是你的学号，password是经过MD5加密后的密码，如果您还是初始密码A开头的密码，那就默认是6e414d222e2765b8ed2501f1df15ffdf
+];//username是你的学号，password是经过加密后的密码，如果您还是初始密码A开头的密码，那就默认是6e414d222e2765b8ed2501f1df15ffdf
 const MAX_RETRY_COUNT = 2;  // 设置最大重试次数
-// 获取Token的函数
+// 获取Token
 const getToken = async (username, password) => {
     try {
         const response = await axios.post('https://xskq.ahut.edu.cn/api/flySource-auth/oauth/token', new URLSearchParams({
@@ -60,7 +60,7 @@ const getToken = async (username, password) => {
 
         const data = response.data;
         if (response.status === 200) {
-          console.log(`${username} 登录成功, Token:`, data.access_token); // 获取到的 Token
+          console.log(`${username} 登录成功, Token:`, data.access_token); 
           return data.access_token;
         } else {
           console.error(`${username} 登录失败:`, data);
@@ -72,7 +72,7 @@ const getToken = async (username, password) => {
       }
     };
 
-// 获取当前时间，格式化为 HH:MM:SS
+
 const getCurrentTime = () => {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
@@ -80,11 +80,11 @@ const getCurrentTime = () => {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     return `${hours}:${minutes}:${seconds}`;
 };
-// 获取当前日期，格式化为 YYYY-MM-DD
+
 const getCurrentDate = () => {
   const now = new Date();
   const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, "0"); // 月份从 0 开始
+  const month = String(now.getMonth() + 1).padStart(2, "0"); 
   const day = String(now.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
@@ -101,23 +101,23 @@ const getCurrentWeekday = () => {
     "星期六",
   ];
   const now = new Date();
-  const day = now.getDay(); // 获取星期几（0-6，0为星期日）
+  const day = now.getDay(); 
   return days[day];
 };
 
-// 发送邮件的函数
+
 const sendEmail = async (to, subject, text) => {
     let transporter = nodemailer.createTransport({
         service: 'qq',
         auth: {
-            user: '',//这里是你自己申请的发送到你邮箱的邮箱，可注册一个小号，并且获取专用密码（前往qq官网了解专用密码）
-            pass: ''//你的专用密码
+            user: '',//这里是你自己申请的发送到你邮箱的邮箱
+            pass: ''//专用密码
         }
     });
 
     let mailOptions = {
-        from: '',//是你自己申请的发送到你邮箱的邮箱，可注册一个小号，和上面user一样的邮箱
-        to: to,//这里是你要发送的邮箱，可设置成你的大号，在上面user用户信息里设置，to不用改哦！
+        from: '',
+        to: to,//这里是你要发送的邮箱，可设置成你的大号，在上面user用户信息里设置
         subject: subject,
         text: text
     };
@@ -132,14 +132,14 @@ const sendEmail = async (to, subject, text) => {
 
 // 生成动态经纬度的函数，微调最后两位小数
 const getDynamicLocation = (lat, lng) => {
-    // 生成随机数，微调最后两位小数
+    
     const randomOffset = () => Math.random() * 0.01 - 0.005;
     const newLat = (lat + randomOffset()).toFixed(6);
     const newLng = (lng + randomOffset()).toFixed(6);
     return { lat: newLat, lng: newLng };
 };
 
-// 签到函数，动态传入宿舍坐标
+
 const signIn = async (token, user, retryCount = 0) => {
     if (!token) {
         console.error(`${user.username} 的 Token 未获取到，无法进行签到`);
@@ -159,7 +159,7 @@ const signIn = async (token, user, retryCount = 0) => {
     const dynamicLocation = getDynamicLocation(dormLocation.lat, dormLocation.lng);
 
     const payload = {
-      taskId: "ec7f0f0fb0f6702f61da122ebf0eb592",//这里的taskid在2025年1月份之后会改变，作者猜测不同学期有不同taskid
+      taskId: "ec7f0f0fb0f6702f61da122ebf0eb592",
       signAddress: "宿舍楼",
       locationAccuracy: 7.8,
       signLat: dynamicLocation.lat,
@@ -167,9 +167,9 @@ const signIn = async (token, user, retryCount = 0) => {
       signType: 0,
       fileId: "",
       imgBase64: "/static/images/dormitory/photo.png",
-      signDate: currentDate, // 使用当前日期
-      signTime: currentTime, // 使用当前时间
-      signWeek: currentWeekday, // 使用当前星期几
+      signDate: currentDate, 
+      signTime: currentTime, 
+      signWeek: currentWeekday, 
       scanCode: ""
     };
 
@@ -194,7 +194,7 @@ const signIn = async (token, user, retryCount = 0) => {
             // 如果签到失败，重试机制
             if (retryCount < MAX_RETRY_COUNT) {
                 console.log(`${user.username} 正在进行第 ${retryCount + 1} 次重试...`);
-                await signIn(token, user, retryCount + 1); // 递归重试
+                await signIn(token, user, retryCount + 1);
             } else {
                 console.error(`${user.username} 签到失败，达到最大重试次数`);
                 await sendEmail(user.email, '打卡失败', `${user.username} 打卡失败: ${data.msg}`)
@@ -213,12 +213,12 @@ const signIn = async (token, user, retryCount = 0) => {
       }
 };
 
-// 遍历每个用户，获取 Token 并签到
+
 const signInAllUsers = async () => {
     for (const user of users) {
-      const token = await getToken(user.username, user.password); // 逐个获取用户 Token
+      const token = await getToken(user.username, user.password); 
       if (token) {
-        await signIn(token, user); // 使用对应用户的 Token 进行签到
+        await signIn(token, user); 
       }
     }
   };
