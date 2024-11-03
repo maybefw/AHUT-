@@ -22,7 +22,7 @@ sudo apt install -y nodejs //安装nodejs
 node -v
 npm -v //检查node和npm版本
 ```
-fuwuqiqiandao.js 供在服务器上运行，打卡成功之后会有邮件提醒。需要在服务器上安装axios和nodemailer库   
+在服务器上安装axios和nodemailer库   
 ```
 npm install axios
 npm install nodemailer
@@ -34,10 +34,7 @@ crontab -e //设置 cron 定时任务
 20 21 * * * /usr/bin/node /root/fuwuqiqiandao.js >> /root/fuwuqiqiandao.log 2>&1
 ```   
 crontab 文件中添加，20 21 * * *: 这表示每天的 21:20 执行任务
-按下 Ctrl + O 保存文件。
-按下 Enter 确认。
-按下 Ctrl + X 退出编辑器。
-运行 crontab -l 来查看当前的定时任务是否已经添加成功。
+
 ```
 cd /root
 node fuwuqiqiandao.js //测试脚本
@@ -47,7 +44,7 @@ node fuwuqiqiandao.js //测试脚本
 </details>
 
 # 使用
-最直接的，使用您的vscode或其他工具克隆本项目到本地   
+
 ```
 git clone https://github.com/maybefw/AHUT-.git
 ```
