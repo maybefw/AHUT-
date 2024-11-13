@@ -59,7 +59,8 @@ git clone https://github.com/maybefw/AHUT-.git
  
 # 如果你觉得本项目对你有用
 
-<img src="https://github.com/user-attachments/assets/98dd2eaf-7163-4822-93f5-9944f9fead26" width="200" />
+<img src="https://github.com/user-attachments/assets/d620a231-19eb-47fb-a1f7-61c12826d90f" width="200" />
+
 
 
 
