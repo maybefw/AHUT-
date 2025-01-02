@@ -1,7 +1,17 @@
 # AHUT-
 安徽工业大学晚寝考勤打卡签到 
 star本项目之后可提供免费体验打卡到11月10号（服务器到期）   捐赠本项目后可永久打卡   
+不方便提供给个人源码 不好意思...   
 如何联系？v：jlian0201
+# 2025.1.2 更新可用
+本次更新添加请求头sign参数，请求体roomid，感觉考勤系统正在完善后续还会更新，当然他更新我也不闲着   
+sign参数分析：首先想到的是逆向小程序 可是小程序并不支持电脑端打开 也就没有本地存储 虽然知道appid（wx096f108fde346e0e）但也逆向不了 于是换个想法 直接去考勤系统网站https://xskq.ahut.edu.cn/登录之后里面空荡荡 看请求里面虽然有FlySource-sign但是死活找不到在哪里加密的这个参数！！！找到的都是一些无用的文件....   
+<img src="https://github.com/user-attachments/assets/ea082585-b799-4623-bd74-66b52e7c2bd7" alt="image description" width="400" height="300" />   
+谷歌一下突然看到小程序有‘在电脑上打开’字样 我也是蠢到家了，这个也能忘！！！   
+于是赶紧尝试 成功之后就是打断点调试咯 扣js代码分析sign参数 分析过程中发现 不同请求中的sign参数加密所取得url是不同的！不同的api请求是不同的加密哈哈哈  
+也没啥难的 放上成功图(最近不方便提供给个人源码 不好意思...   )    
+<img src="https://github.com/user-attachments/assets/f52f8c57-27c4-47b1-8f5a-2aef4ab2b25d" alt="image description" width="400" height="300" />   
+
 # 2024.11.6 项目维护
 暂时不更新代码，有需求找我
 
